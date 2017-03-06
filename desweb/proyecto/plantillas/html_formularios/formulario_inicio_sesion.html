@@ -1,0 +1,19 @@
+<form name="inicio-sesion" id="inicio-sesion" class="login">
+    <input type="hidden" name="nombre-form" id="nombre-form" value="inicio-sesion"/>
+        <table class="centrado" >
+            <tr>
+                <td><label for="nombre">Usuario: </label></td>
+                <td><input type="text" id="usuario" name="usuario" maxlength="30" placeholder="Introduzca su usuario" required></td>
+            </tr>
+            <tr>
+                <td><label for="contraseña">Contraseña: </label></td>
+                <td><input type="password" id="password" name="password" maxlength="50" placeholder="Introduzca su contraseña" required></td>
+            </tr>
+            <tr>
+                <!-- <td colspan="2"><input type="submit" value="Iniciar" -->
+                <td colspan="2">
+                    <button type="button" id="enviar_formulario_ini_ses" onclick="enviar_formulario(this.form)">Enviar</button>
+                </td>
+            </tr>
+        </table>
+</form>

@@ -1,0 +1,5 @@
+URL_IDE_WMS='http://localhost:8080/geoserver/cch/wms?'
+URL='http://localhost/proyecto/'
+URL_STATIC='http://localhost/static/'
+URL_WMS_CAPA_MUNICIPIO='http://localhost:8080/'
+URL_LIB_JS='http://localhost/lib-js/'

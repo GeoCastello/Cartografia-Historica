@@ -1,0 +1,74 @@
+<section id="alfanumerica" class="alfanumerica">
+    <h1>
+         BÚSQUEDA ALFANUMÉRICA
+    </h1>
+   
+   <form name="formulario_alfa" id="formulario_alfa" class="formulario_alfa">
+        <input type="hidden" name="nombre-form" id="nombre-form" value="formulario_alfa"/>
+        <input type="hidden" name="type-form" id="type-form" value=""/>
+	    <div class="ordenbusca">
+	        <label for="tipo" class="titulo">Tipo de cartografía:</label><br>
+	        <input type="checkbox" name="tipo_urbana" value="urbana" onchange="resetear(this.form)">Urbana
+	        <input type="checkbox" name="tipo_rustica" value="rustica" onchange="resetear(this.form)">Rústica<br><br>
+	        <label for="municipio">Municipio:</label><br>
+            <input type="text" name="municipio" id="municipio" placeholder="Introduzca el municipio a buscar" onchange="resetear(this.form)">
+	    </div>    
+	        
+	    <div class="ordenbusca">  
+	        <label for="formato" class="formato">Formato:</label><br>
+	        <input type="checkbox" name="formato_digital" value="digital" onchange="resetear(this.form)">Digital
+	        <input type="checkbox" name="formato_papel" value="papel" onchange="resetear(this.form)">Papel<br>
+	    <br> 
+	        <label for="TipoDocumento" class="titulo">Tipo de documento:</label><br>
+	        <select id="tipo_doc" name="tipo_doc" onchange="resetear(this.form)">
+                <!-- rustica -->
+                <option value="none">Seleccione un tipo de documento</option>
+                <option value="avance catastral">Avance Catastral</option>
+                <option value="Catastrón">Catastrón</option>
+                <option value="catastro sobre ortofoto">Catastro sobre ortofoto</option>
+                <option value="catastro topografico parcelario">Catastro Topográfico Parcelario</option>
+                <option value="concentracion parcelaria">Concentración parcelaria</option>
+                <option value="croquis TM">Croquis Término Municipal</option>
+                <option value="fotografía aerea retintada">Fotografía aérea retintada</option>
+                <option value="mapa municipal">Mapa municipal</option>
+                <option value="ORTOFOTOS REVISION">Ortofotos revisión</option>
+                <option value="otros casos">Otros Casos</option>
+                <option value="plano municipal">Plano municipal</option>
+                <option value="planos catastrales (80-90)">Planos catastrales (80-90)</option>
+                <option value="Planos catastrales (años 1988-2000)">Planos catastrales (años 1988-2000)</option>
+                <option value="Planos catastrales 2ª renovación 2001-2004">Planos catastrales (2ª renovación 2001-2004)</option>
+                <option value="POLIGONOS">Polígonos</option>
+                <option value="REVISION">Revisión</option>
+                <option value="vuelo americano">Vuelo americano</option>
+                <!-- urbana -->
+                <option value="COMPROBACIÓN DE VALORES">Comprobación de valores</option>
+                <option value="CROQUIS-VARIACIONES GRÁFICAS">Croquis-Variaciones Gráficas</option>
+                <option value="FOTOGRAFÍA AÉREA">Fotografía aérea</option>
+                <option value="HOJAS DE CAMPO">Hojas de campo</option>
+                <option value="IMPLANTACION">Implantación</option>
+                <option value="implantacion (50-60)">Implantación (50-60)</option>
+                <option value="implantacion (70-80)">Implantación (70-80)</option>
+                <option value="IMPLANTACION DISEMINADO">Implantación diseminado</option>
+                <option value="ORTOFOTOS">Ortofotos</option>
+                <option value="otros casos">Otros casos</option>
+                <option value="PLANOS. VEGETAL">Planos en papel vegetal</option>
+                <option value="primeras revisiones">Primeras revisiones</option>
+                <option value="primeras revisiones (80-00)">Primeras revisiones (1980-2000)</option>
+                <option value="primeras revisiones (80-90)">Primeras revisiones (80-90)</option>
+                <option value="REVISION">Revisión</option>
+                <option value="REVISION DISEMINADO">Revisión Diseminado</option>
+                <option value="Segregacion">Segregacion</option>
+                <option value="TODO EL MUNICIPIO">Todo el municipio</option>
+                <option value="VARIACIONES GRÁFICAS">Variaciones gráficas</option>
+                <option value="vuelo">Vuelo</option>
+            </select>
+        </div><br>
+           
+        <div class="boton_busqueda">      
+            <button type="button" id="enviar" class="button" onclick="boton_enviar(this.form)">Buscar</button>
+            <select id="municipio_final" name="municipio_final">
+	           <option value="iniciado">Seleccione un municipio</option>
+	        </select>
+        </div> 
+    </form>             
+</section>

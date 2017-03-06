@@ -1,0 +1,120 @@
+form {
+	margin-bottom: 20px;
+}
+
+form label {
+	font: bold 18px verdana, sans-serif;
+}
+
+form input {
+    background-position: right; 
+    background-repeat: no-repeat; 
+    width: 100%;
+    padding: 8px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-position: 98%;
+}
+
+form input[type=checkbox], input[type=radio] {
+    width: auto; 
+    margin-left: 10px;
+}
+
+fieldset {
+    border-radius: 1em;
+}
+
+/*Background-position --> Mueve la imagen desde la esquina superior izquierda*/
+/*padding --> arriba; derecha; abajo; izquierda*/    
+
+form input:hover {
+	border: 2px solid #77CDDF;
+}
+form input:focus {
+    outline: none;
+    border: 2px solid #77CDDF;
+}
+
+label, legend {
+    font: bold 14px verdana, sans-serif;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 1em;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+.ordenbusca {
+    width: 45%;
+    float: left;
+    padding-right:5%;
+}
+
+.ordenbusca select {
+	background-position: 97%;
+    padding-right:0%;
+}
+
+.boton_busqueda {
+    clear: both;
+}
+
+
+form select {
+    background-position: right; 
+    background-repeat: no-repeat; 
+    width: 100%;
+    padding: 7px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 1em;
+    box-sizing: border-box;
+    background-position: 98%;
+}
+
+form select:hover {
+    border: 2px solid #77CDDF;
+}
+form select:focus {
+    outline: none;
+    border: 2px solid #77CDDF;
+}
+
+#municipio_final{
+	display: none;
+	width: 85%;
+	float: right;
+    background-image: none;
+    padding: 7px;
+    box-shadow: 0 3px #999;
+}
+
+#municipio_final:active {
+	box-shadow: 0 1px #666;
+    transform: translateY(2px);
+    border: none;
+	}
+
+#municipio_final:hover {
+    border: none;
+    }
+
+.error{
+    background-color: #DFC5CC;
+}
+.correct{
+    background-color: #D8F6CE;
+}
+

@@ -1,0 +1,381 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+    font: bold 24px verdana, sans-serif;
+    margin-top:20px;
+} 
+h2 {
+    font: bold 20px verdana, sans-serif;
+}
+
+h3 {
+    font: bold 15px verdana, sans-serif;
+    padding-top: 5px;
+}
+
+header, section, footer, aside, nav, article, figure, figcaption, hgroup {
+    display: block;
+}
+
+body {
+    text-align: center;
+}
+
+#agrupar {
+	width: 85%;
+	margin: 15px auto;
+	text-align: left;
+}
+
+#cabecera {
+	position: relative;
+	height: 250px;
+	background-image: url('../img/mapa.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	border-radius: 1em;
+	color: white;
+}
+#cabecera h1 {
+	font: bold 34px verdana, sans-serif;
+	padding-top:70px;
+    display:block;
+    position:relative;
+    text-align: center; 
+    border: 1px;
+    text-shadow: 4px 4px #000;
+}
+
+#cabecera h2 {
+	font: bold 24px verdana, sans-serif;
+	padding-top: 20px;
+    display:block;
+    position: relative;
+    text-align: center;
+	border: 1px;
+	text-shadow: 4px 4px #000;
+}
+
+#menu {
+	position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-shadow: 2px 2px #000;
+}
+
+#menu ul {
+	border-radius: 1em;
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    font: bold 14px verdana, sans-serif;
+}
+
+#menu li {
+	float: left;
+    border-right:1px solid #bbb;
+	font: bold 14px verdana, sans-serif;
+}
+
+#menu li:last-child {
+    border-right: none;
+}
+
+#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#menu li:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #9B0228;
+}
+
+#submenu {
+	float: right;
+}
+
+.seccion {
+	border-radius: 1em;
+	background-color: #E6E6E6;
+	padding-left: 1%;
+    padding-right: 1%;
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	width: 70%;
+	box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #EEF5F7 inset;
+}
+
+.mapa {
+    border-radius: 1em;
+    background-color: #E6E6E6;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #EEF5F7 inset;
+}
+
+.map {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.busqueda {
+    border-radius: 1em;
+    background-color: #E6E6E6;
+    padding-top: 15px;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
+}
+
+.rustica {
+    border-radius: 1em;
+    background-color: #E6E6E6;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #EEF5F7 inset;
+}
+
+.rustica p {
+    text-align: center;
+    margin: 10px;
+}
+.rustica ul {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.button {
+	display: inline-block;
+	padding: 7px 15px;
+	margin-top:10px;
+	font-size: 16px;
+	cursor: pointer;
+	text-align: center;   
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #9B0228;
+	border: none;
+	border-radius: 1em;
+	box-shadow: 0 3px #999;
+}
+
+.button:hover {background-color: #860223}
+
+.button:active {
+  background-color: #860223;
+  box-shadow: 0 1px #666;
+  transform: translateY(2px);
+}
+
+.urbana {
+    border-radius: 1em;
+    background-color: #E6E6E6;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #EEF5F7 inset;
+}
+
+.urbana p {
+    text-align: center;
+    margin: 10px;
+}
+
+.sec_home p {
+	text-align: justify;
+    padding-top: 1%;    
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+.sec_home ul {
+    text-align: justify;
+    padding-top: 0px;    
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+.urbana ul {
+	display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.alfanumerica {
+    border-radius: 1em;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
+}
+
+.alfanumerica h1 {
+    padding-bottom: 10px;
+}
+
+.columna {
+	border-radius: 1em;
+	float: right;
+	width: 20%;
+	height: 100%;
+	margin-top: 15px;
+	margin-bottom: 25px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	background: #d5d1e8;
+    box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #d5d1e8 inset;
+}
+.columna h1 {
+	font: bold 22px verdana, sans-serif;
+	text-align: left;
+}
+.columna ul {
+	list-style-type: none;
+	font: bold 14px verdana, sans-serif;
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+    text-decoration: underline;
+}
+
+
+.alfanumerica h1{
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+#pie h2 {
+	margin-top: 15px;
+
+}
+
+#tablas{
+    clear: both;
+	width: 98%;
+	
+}
+
+#pie {
+    clear: both;
+    text-transform: uppercase;  
+    text-align: center;
+    padding: 10px;
+    border-radius: 1em;
+    background: #d5d1e8;
+    box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #d5d1e8 inset;
+}
+
+#pie li {
+    list-style: none;
+    display: inline-block;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
+
+}
+
+.logo {
+	width: 200px;
+}
+
+table th:first-child {
+  border-radius: 1em 0 0 0;
+}
+table th:last-child {
+  border-radius: 0 1em 0 0;
+}
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 1em;
+}
+table tr:last-child td:last-child {
+  border-radius: 0 0 1em 0;
+}
+
+table {
+	
+    margin-top:20px;
+    width: 100%;
+}
+
+table th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tbody tr {
+	background-color: #F2F2F2
+}
+
+tbody tr:nth-child(even){background-color: #DFC5CC}
+
+table th {
+    background-color: #9B0228;
+    color: white;
+    
+}
+
+.centrado tr:nth-child(even){background-color: #9B0228}
+
+table tr:hover {background-color: #D8F6CE}
+table tr:active {
+	background-color: #bcf0aa;
+    transform: translateY(2px)
+}
+
+
+
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Proyecto Cartografía Histórica">
+        <meta name="keywords" content="HTML, CSS, Master, Geomatica, Geoinformacion, catastro, historica, cartografia, Practica2, Geoserver, Geoportales">
+        <meta name="author" content="Adrián Castelló Martínez & Daniel Ruano Folch">
+        
+        <!-- Título que se ve en la pestaña -->
+        <title>Cartografía Histórica</title>
+        
+        <!-- Open Layers -->
+        <link rel="stylesheet" href="http://openlayers.org/en/v3.2.0/css/ol.css" type="text/css">
+        <script src="http://openlayers.org/en/v3.11.2/build/ol.js" type="text/javascript"></script>
+        
+        <!-- Contenido de la web -->
+        <base href="http://localhost/static/">
+        
+        <!-- Estilos CSS (Falta añadir el href porque aun no está creado el archivo -->
+        <link rel="stylesheet" href="proyecto/css/style.css">
+        
+        <!-- Scripts Javascript (Falta añadir el src porque aun no está creado el archivo -->
+        <script src="proyecto/js/app.js" type="text/javascript"></script>
+        
+    </head>
+    <body>
+        <div id="agrupar">
+            <header id="cabecera">
+                <h1>
+                    CARTOGRAFÍA CATASTRAL HISTÓRICA
+                </h1>
+                <h2>
+                    Geoportal de Búsqueda
+                </h2>
+                <nav id="menu">
+                     <ul>
+                        <li><a class="active" href="http://localhost/desweb/prac2/webcontent/">Home</a></li>
+                        <li><a href="http://localhost/desweb/prac2/webcontent/">Búsqueda Gráfica</a></li>
+                        <li class="desplegable"><a href="http://localhost/desweb/prac2/webcontent/">Búsqueda Alfanumérica</a>
+                        </li>
+                        <li class="desplegable"><a href="#datostubos">######</a>
+                        </li>
+                        <li class="desplegable"><a href="#datostrabajos">######</a>
+                        </li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <ul id="submenu">
+                           <li><a href="#contacto">About</a></li>
+                           <li><a href="#contacto">######</a></li>
+                        </ul>  
+                     </ul>
+                </nav>
+            </header>
+            
+            <section id="seccion" class="seccion">
+	            <section id="mapa" class="mapa">
+	                <h1>Mapa de búsqueda por municipio</h1>
+	                
+	                <div id='map' class='map'></div>
+	                <script type="text/javascript">
+				        var map = new ol.Map({ 
+				            layers: [ 
+				              new ol.layer.Tile({ 
+				                 source: new ol.source.OSM() 
+				              }) 
+				            ], 
+				            renderer: 'canvas',
+				            target: 'map', 
+				            view: new ol.View({ 
+				              center: [0, 0], 
+				              zoom: 2 
+				            }) 
+				         });
+				    </script>
+	            </section>
+	            <section id="rustica" class="rustica">
+	                <h1>
+	                     CARTOGRAFÍA RÚSTICA
+	                </h1>
+	                <p>Los pozos de saneamiento deben estar separados más de un metro para poder ser instalados.</p>
+	                <ul>
+	                     <li class="button">Mostrar tabla de pozos</li>
+	                     <li class="button">Ocultar tabla de pozos</li>
+	                </ul>
+	                <table>
+	                    <tr>
+	                        <th>gid</th>
+	                        <th>Descripción</th>
+	                        <th>z_tapa</th>
+	                        <th>id_trabajo</th>
+	                        <th>profundidad</th>
+	                        <th>diametro</th>
+	                    </tr>
+	                    <tr>
+	                        <td>1</td>
+	                        <td>Pozo normal</td>
+	                        <td>10</td>
+	                        <td>1</td>
+	                        <td>3</td>
+	                        <td>1:1</td>
+	                    </tr>
+	                    <tr>
+	                        <td>1</td>
+	                        <td>La tapa estaba en mal estado</td>
+	                        <td>15</td>
+	                        <td>1</td>
+	                        <td>3</td>
+	                        <td>1:1</td>
+	                    </tr>
+	                    <tr id="medias">
+	                        <td colspan="4">Medias</td>
+	                        <td>3</td>
+	                        <td>1.1</td>
+	                    </tr>
+	                </table>
+	            </section>
+	            <section id="urbana" class="urbana">
+	                <header>
+	                    <h1>
+	                        CARTOGRAFÍA URBANA
+	                    </h1>
+	                </header>
+	                <p>Los tubos de saneamiento deben seguir las siguientes normas topológicas</p>
+	                <ul>
+	                    <li>Deben comenzar y acabar exactamente sobre un pozo</li>
+	                    <li>Deben tener pendiente descendente</li>
+	                    <li>No pueden intersectarse</li>
+	                    <li>No pueden autointersectarse</li>
+	                </ul>
+	            </section>
+            </section>
+            
+            <aside id="columna" class="columna">
+                <h1>
+                    Webs Interesantes
+                </h1>
+                <ul>
+                    <li>
+                        <a href="http://www.opengeospatial.org/">Open Geospatial Consortium</a>
+                    </li>
+                    <li>
+                        <a href="http://www.postgresql.org/">PostgreSQL</a>
+                    </li>
+                    <li>
+                        <a href="http://www.postgis.net/">Postgis</a>
+                    </li>
+                    <li>
+                        <a href="http://www.w3schools.com/html/html5_intro.asp">HTML5</a>
+                    </li>
+                </ul>
+            </aside>
+            <footer id="pie">
+                <h1>
+                    Asignatura Desarrollo Web y Geoportales
+                </h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <figure>
+                               <img id="logo" src="prac2/img/upv.png" alt="logoUPV">
+                            </figure>
+                        </li>
+                        <li>
+                            <figure>
+                               <img id="logo" src="prac2/img/etsigct.gif" alt="logoETSIGCT">
+                            </figure>
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+        </div>
+    </body>
+</html>
