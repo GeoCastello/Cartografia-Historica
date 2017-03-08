@@ -23,7 +23,7 @@ def crea_form_busqueda():
     #pydevd.settrace()
     nom_arch=dir_base+"/html_formularios/formulario_busqueda.html"
     formulario=dweb.leer_archivo(nom_arch)
-    
+
     return formulario
 
 def crea_form_balfa():
@@ -33,5 +33,15 @@ def crea_form_balfa():
     #pydevd.settrace()
     nom_arch=dir_base+"/html_formularios/formulario_balfa.html"
     formulario=dweb.leer_archivo(nom_arch)
-    
+
+    return formulario
+
+def crea_form_opinion():
+    """
+    Crea el formulario de opiniones
+    """
+    #pydevd.settrace()
+    nom_arch=dir_base+"/html_formularios/formulario_opinion.html"
+    formulario=dweb.leer_archivo(nom_arch)
+
     return formulario

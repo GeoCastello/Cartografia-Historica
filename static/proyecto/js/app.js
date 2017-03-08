@@ -42,7 +42,6 @@ function reemplaza_cuerpo(datos) {
 
 function crea_tablas(datos) {
 	var respuesta=$.parseJSON(datos);
-	
 	if (respuesta.seccion=="#tablas" ||  respuesta.seccion=="#municipio_final"){
 		var cuerpo=$(respuesta.seccion);
 		cuerpo.replaceWith(respuesta.html);
@@ -59,7 +58,21 @@ function crea_tablas(datos) {
 		var extension=$.parseJSON(respuesta.extension)
 		zoom(extension.coordinates);
 	}
+	if (respuesta.seccion=="#reg_opinion"){
+		alert(respuesta.mensaje)
+		limpiar()
+	}
 }
+
+function limpiar(){
+	document.getElementById('nombre').value="";
+	document.getElementById('apellido').value="";
+	document.getElementById('tipo_titulacion').value="Sin especificar";
+	document.getElementById('tipo_trabajo').value="Sin especificar";
+	document.getElementById('mejoras').value="";
+	document.formulario_opinion.utilidad[0].checked=true
+	
+	}
 
 function resetear(f) {
 	var text='<select id="municipio_final" name="municipio_final" required><option value="iniciado">Seleccione un municipio</option></select>'

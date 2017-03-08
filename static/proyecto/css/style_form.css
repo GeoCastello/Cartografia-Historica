@@ -21,6 +21,7 @@ form input {
 
 form input[type=checkbox], input[type=radio] {
     width: auto; 
+	margin-top: 8px;
     margin-left: 10px;
 }
 
@@ -48,12 +49,20 @@ textarea {
     height: 100px;
     padding: 12px 20px;
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    border: 1px solid #ccc;
     border-radius: 1em;
-    background-color: #f8f8f8;
-    font-size: 16px;
     resize: none;
+	margin: 12px 0;
 }
+
+form textarea:hover {
+	border: 2px solid #77CDDF;
+}
+form textarea:focus {
+    outline: none;
+    border: 2px solid #77CDDF;
+}
+
 
 .ordenbusca {
     width: 45%;

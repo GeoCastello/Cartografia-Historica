@@ -1,0 +1,64 @@
+<section id="reg_opinion" class="reg_opinion">
+    <h1>
+         REGISTRO DE OPINIONES
+    </h1><br>
+   
+   <form name="formulario_opinion" id="formulario_opinion" class="formulario_opinion">
+        <input type="hidden" name="nombre-form" id="nombre-form" value="formulario_opinion"/>
+        <input type="hidden" name="type-form" id="type-form" value=""/>
+	    <div class="ordenbusca">
+	        <label for="nombre" class="titulo">Nombre:</label><br>
+            <input type="text" name="nombre" id="nombre" placeholder="Introduzca su nombre">
+			<br>
+			<br>			
+	        <label for="tipo_titulacion">Titulación:</label><br>
+	        <select id="tipo_titulacion" name="tipo_titulacion">
+                <!-- rustica -->
+                <option value="Sin especificar">Seleccione una titulación</option>
+                <option value="avance catastral">Avance Catastral</option>
+                <option value="Catastrón">Catastrón</option>
+                <option value="catastro sobre ortofoto">Catastro sobre ortofoto</option>
+                <option value="catastro topografico parcelario">Catastro Topográfico Parcelario</option>
+                <option value="concentracion parcelaria">Concentración parcelaria</option>
+                <option value="croquis TM">Croquis Término Municipal</option>
+            </select>
+			<br>
+			<br>
+	    </div>    
+	        
+	    <div class="ordenbusca">  
+	        <label for="apellido" class="titulo">Apellidos:</label><br>
+            <input type="text" name="apellido" id="apellido" placeholder="Introduzca sus apellidos">
+			<br>
+			<br> 
+	        <label for="tipo_trabajo" class="titulo">Tipo de trabajo a realizar:</label><br>
+	        <select id="tipo_trabajo" name="tipo_trabajo">
+                <option value="Sin especificar">Seleccione el tipo de trabajo a realizar con la cartografía</option>
+                <option value="Des_finca">Deslinde de finca</option>
+                <option value="Des_costa">Deslinde de costa</option>
+                <option value="Des_ter_municipal">Deslinde de término municipal</option>
+                <option value="Des_via_pecuaria">Deslinde de vía pecuaria</option>
+                <option value="Des_administracion">Deslinde con administración</option>
+                <option value="Des_maritimo_terrestre">Deslinde de zona marítimo terrestre</option>
+                <option value="Loc_finca">Localizar finca</option>
+                <option value="Otros">Otros</option>								
+            </select>
+			<br>
+			<br>
+        </div><br>
+			
+        <div class="boton_busqueda">
+	        <label for="utilidad" class="titulo">¿Es útil este geoportal para Usted?:</label><br>
+			<input type="radio" name="utilidad" id="utilidad" value="Mucho" checked> Mucho
+			<input type="radio" name="utilidad" id="utilidad" value="Algo"> Algo
+			<input type="radio" name="utilidad" id="utilidad" value="Poco"> Poco
+			<input type="radio" name="utilidad" id="utilidad" value="Nada"> Nada
+			<br>
+			<br>
+			<label for="mejoras" class="titulo">Sugerencias de mejora:</label><br>
+			<textarea id="mejoras" name="mejoras" rows="4" cols="50"  placeholder="Comparta con nosotros sus ideas para mejorar este geoportal."></textarea>
+			<br>			
+            <button type="button" id="enviar" class="button" onclick="enviar_formulario(this.form)">Enviar</button>
+        </div> 
+    </form>             
+</section>
