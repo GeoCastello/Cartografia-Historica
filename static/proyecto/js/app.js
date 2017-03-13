@@ -152,7 +152,10 @@ function enviar_click(sentencia) {
 }
 
 
-
+function abrir_web(url){
+	// window.open(url, "_self");
+	window.open(url);
+}
 
 
 $(document).ready(inicializa); //Ejecuta la función inicializa cuando el documento

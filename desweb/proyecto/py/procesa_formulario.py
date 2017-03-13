@@ -393,6 +393,7 @@ class procesar_formularios():
         return html
 
     def procesa_form_opinion(self):
+        accion='Enviar opinión'
         if "nombre" in self.dpost.keys():
             nombre=self.dpost["nombre"][0]
         else:
@@ -411,6 +412,7 @@ class procesar_formularios():
         sql_ins="INSERT INTO  soporte.opinion (ip, fecha, nombre, apellidos, titulacion, trabajo, opinion, mejoras) VALUES ('"+self.environ['REMOTE_ADDR']+"', to_timestamp('"+time.strftime('%c')+"','MM/DD/YY HH24:MI:SS'), '"+nombre+"', '"+apellidos+"', '"+titulacion+"', '"+trabajo+"', '"+opinion+"', '"+mejoras+"');"
         self.cursor.execute(sql_ins)
         self.conn.commit()
+        self.inserta_registro(accion, sql_ins)        
         json_resp=json.dumps({"seccion":"#reg_opinion", "mensaje": "Tu opinión ha sido enviada correctamente", "extension": "null"})
         html=json_resp
         return html

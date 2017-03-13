@@ -123,14 +123,16 @@ body {
 .mapa {
     border-radius: 1em;
     background-color: #E6E6E6;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
     float: left;
-    width: 98%;
+    width: 96%;
     margin-top: 15px;
     margin-bottom: 10px;
     box-shadow: 0px 3px 10px #B5C1C5, 0 0 0 0px #EEF5F7 inset;
 }
+
+
 
 .map {
     padding-top: 20px;
@@ -210,6 +212,8 @@ body {
     margin: 10px;
 }
 
+
+
 .sec_home p {
 	text-align: justify;
     padding-top: 1%;    
@@ -238,8 +242,36 @@ body {
     width: 98%;
 }
 
-.alfanumerica h1 {
-    padding-bottom: 10px;
+.reg_opinion {
+    border-radius: 1em;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
+}
+
+.estadisticas {
+    border-radius: 1em;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
+}
+
+.sec_ayuda {
+    border-radius: 1em;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
+}
+
+.sec_contacto {
+    border-radius: 1em;
+    padding-left: 1%;
+    padding-right: 1%;
+    float: left;
+    width: 98%;
 }
 
 .columna {
@@ -289,12 +321,6 @@ a:active {
 }
 
 
-.alfanumerica h1{
-    float: left;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
 
 
 #pie h2 {
@@ -331,6 +357,37 @@ a:active {
 .logo {
 	width: 200px;
 }
+
+.logito {
+    width: 20px;
+	float: right;
+}
+
+#t_nombre {
+	float: left;
+}
+
+
+#t_contacto th:hover {
+	color: black;
+	background-color: #D5D1E8;
+	cursor: pointer;
+}
+#t_contacto tr:hover {
+	background-color: #DFC5CC;
+	cursor: default;
+}
+#t_contacto tr:active {
+    transform: none;
+	cursor: default;
+}
+
+#t_contacto th:active {
+	background-color: #C8C4DA;
+    transform: translateY(-2px);
+	cursor: pointer;
+}
+
 
 table th:first-child {
   border-radius: 1em 0 0 0;
@@ -370,12 +427,15 @@ table th {
 
 .centrado tr:nth-child(even){background-color: #9B0228}
 
-table tr:hover {background-color: #D8F6CE}
-table tr:active {
-	background-color: #bcf0aa;
-    transform: translateY(2px)
+table tr:hover {
+	background-color: #D5D1E8;
+	cursor: pointer;
 }
-
+table tr:active {
+	background-color: #C8C4DA;
+    transform: translateY(2px);
+	cursor: pointer;
+}
 
 
 

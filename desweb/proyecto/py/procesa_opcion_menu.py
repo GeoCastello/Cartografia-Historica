@@ -28,63 +28,40 @@ def procesa_opcion_menu(environ):
         Le ha vuelto a dar a inicio, por lo que se genera la página con
         el mapa
         """
-
         home=plantillas.crea_home()
-        seccion=plantillas.crea_seccion_principal(home)
-
-        html=seccion
+        html=plantillas.crea_seccion_principal(home)
 
     elif aplicacion=="bgrafica":
         """
-        Datos de los pozos sin el mapa
+        Muestra el mapa y busqueda grafica
         """
-
         busqueda=formularios.crea_form_busqueda()
-        seccion=plantillas.crea_seccion_principal(busqueda)
-
-        html=seccion
-
+        html=plantillas.crea_seccion_principal(busqueda)
 
     elif aplicacion=="balfa":
         """
-        Datos de los tubos sin el mapa
+        Busqueda alfanumerica
         """
-
         balfa=formularios.crea_form_balfa()
-        seccion=plantillas.crea_seccion_principal(balfa)
+        html=plantillas.crea_seccion_principal(balfa)
 
-        html=seccion
+    elif aplicacion=="estadisticas":
+        opinion=formularios.crea_form_estadisticas()
+        html=plantillas.crea_seccion_principal(opinion)
 
     elif aplicacion=="opinion":
-
         opinion=formularios.crea_form_opinion()
-        seccion=plantillas.crea_seccion_principal(opinion)
+        html=plantillas.crea_seccion_principal(opinion)
 
-        html=seccion
+    elif aplicacion=="contacto":
+        contacto=plantillas.crea_contacto()
+        html=plantillas.crea_seccion_principal(contacto)
+
+    elif aplicacion=="ayuda":
+        ayuda=plantillas.crea_ayuda()
+        html=plantillas.crea_seccion_principal(ayuda)
 
     else:
         html=plantillas.crea_seccion_principal("Opción incorrecta")
 
     return html
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

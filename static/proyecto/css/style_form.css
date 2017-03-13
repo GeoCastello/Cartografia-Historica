@@ -79,6 +79,9 @@ form textarea:focus {
     clear: both;
 }
 
+.ordenbusca tr {
+	background-color: none;
+}
 
 form select {
     background-position: right; 
