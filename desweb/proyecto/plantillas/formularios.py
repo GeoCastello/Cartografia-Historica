@@ -48,6 +48,6 @@ def crea_form_estadisticas():
     Crea el formulario de estadisticas
     """
     #pydevd.settrace()
-    nom_arch=dir_base+"/html_formularios/formulario_estadisticas.html"
+    nom_arch=dir_base+"/html_formularios/formulario_est_general.html"
     formulario=dweb.leer_archivo(nom_arch)
     return formulario

@@ -62,6 +62,99 @@ function crea_tablas(datos) {
 		alert(respuesta.mensaje)
 		limpiar()
 	}
+	if (respuesta.seccion=="#estadisticas_gen"){
+		var documentos=respuesta.documentos;
+		var num_hojas=respuesta.num_hojas;
+		
+		d3.select("#estadisticas_sec")
+			.append("p")
+			.attr("id", "value_stat")
+			.attr("class", "value_stat")
+			.style("text-align", "center");
+		//**************************ESTADISTICAS***********************************//
+		var margin_rstat={top: 10, left: 10, bottom: 10, right: 10}
+		var width_rstat1=parseInt(d3.select('#estadisticas_sec').style('width'))
+		var width_rstat=width_rstat1-margin_rstat.left-margin_rstat.right
+		var mapRatio= .5
+		var height_rstat=width_rstat*mapRatio;
+
+		var barPadding=1;
+
+		var estadisticas_gen=d3.select("#estadisticas_sec")
+			.append( "svg" )
+			.attr( "width", width_rstat )
+			.attr( "height", height_rstat )
+			.attr("class", "stats");
+		
+		//**********************************AXIS*************************************//
+		var formatNumber=d3.format(".4")
+		//**********************************X AXIS*************************************//
+		xScale=d3.scaleBand()
+			.rangeRound([0, (width_rstat-width_rstat/10)])
+			.padding(0);
+		xScale.domain(documentos);
+
+		xAxis=d3.axisBottom()
+			.scale(xScale);
+
+		estadisticas_gen.append("g")
+			.attr("class", "xaxis")
+			.attr("transform", "translate("+(margin_rstat.left*7)+","+(height_rstat-(margin_rstat.bottom*20))+")")
+			.call(xAxis);
+		    
+
+		estadisticas_gen.selectAll(".xaxis text")  // select all the text elements for the xaxis
+	        .attr("transform", "translate(-5,0) rotate(-45)")
+	        .style("text-anchor", "end");
+		
+		//**********************************Y AXIS*************************************//
+		yScale=d3.scaleLinear()
+			.range([(height_rstat-(margin_rstat.bottom*20)), 0]);
+		yScale.domain([0, d3.max(num_hojas)]);
+
+		yAxis=d3.axisLeft()
+			.scale(yScale)
+			.tickFormat(formatNumber);
+
+		estadisticas_gen.append("g")
+			.attr("class", "yaxis")
+			.attr("transform", "translate("+(margin_rstat.left*7)+",0)")
+			.call(yAxis);
+		//**********************************GRAPH************************************//
+		max_value = Math.max.apply(Math, num_hojas);
+		estadisticas_gen
+			.selectAll("rect")
+			.data(num_hojas)
+			.enter()
+			.append("rect")
+			.on("mouseover", function(d) {
+						d3.select(this).attr("stroke", "#FFF");
+						d3.select("#value_stat")
+							.style("display", "block");
+						document.getElementById("value_stat").innerHTML="Valor: "+d+" Hojas";
+					})
+			.on("mouseout", function(d) {
+						d3.select(this).attr("stroke", "#000");
+						d3.select("#value_stat");
+					})
+			.attr("class", "rect_stat")
+			.attr("transform", "translate("+(margin_rstat.left*7)+","+(-margin_rstat.bottom-margin_rstat.top)+")")
+			.attr("x", function(d, i) {
+				return (width_rstat/100)+i*((width_rstat-width_rstat/8.5)/num_hojas.length);
+			})
+			.attr("y", function(d) {
+				return (height_rstat-(margin_rstat.bottom*18))-(d*(height_rstat-(margin_rstat.bottom*20))/max_value);
+			})
+			.transition().duration(500)
+			.attr("width", ((width_rstat-width_rstat/8.5)/num_hojas.length)-barPadding)
+			.attr("height", function(d) {
+				return (d*(height_rstat-(margin_rstat.bottom*20))/max_value);
+			})
+			.attr("fill", "#81BEF7")
+			.attr("stroke", "#000");
+	}
+	
+	
 }
 
 function limpiar(){

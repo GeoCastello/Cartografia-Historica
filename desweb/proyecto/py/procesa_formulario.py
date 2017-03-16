@@ -54,6 +54,10 @@ class procesar_formularios():
         elif self.nombre_form=="formulario_opinion":
             self.conexion()
             html=self.procesa_form_opinion()
+            
+        elif self.nombre_form=="formulario_est_general":
+            self.conexion()
+            html=self.procesa_form_est_general()
 
         elif self.nombre_form=="click_tabla":
             self.conexion()
@@ -416,6 +420,43 @@ class procesar_formularios():
         json_resp=json.dumps({"seccion":"#reg_opinion", "mensaje": "Tu opinión ha sido enviada correctamente", "extension": "null"})
         html=json_resp
         return html
+    
+    def procesa_form_est_general(self):
+        #pydevd.settrace()
+        accion='Enviar estadisticas'
+        if 'tipo_estadistica' in self.dpost.keys():
+            tipo_estadistica=self.dpost['tipo_estadistica'][0]
+        else:
+            tipo_estadistica="null"
+            
+        if tipo_estadistica=="num_hojas_por_documento":
+            sql_doc_tipos="SELECT DISTINCT tipo_de_documento FROM cch.rustica UNION SELECT DISTINCT tipo_de_documento FROM cch.urbana"
+            self.cursor.execute(sql_doc_tipos)
+            res_doc_tipos=self.cursor.fetchall()
+            #pydevd.settrace()
+            if res_doc_tipos!=[]:
+                self.inserta_registro(accion, sql_doc_tipos)
+                documentos=[]
+                num_hojas=[]
+                for i in range(0, len(res_doc_tipos)):
+                    if res_doc_tipos[i]==(None,) or res_doc_tipos[i]==[]:
+                        pass
+                    else:
+                        documentos.append(res_doc_tipos[i][0])
+                        sql_num_hojas="SELECT sum(numero_hojas) FROM cch.rustica WHERE tipo_de_documento='"+res_doc_tipos[i][0]+"' UNION SELECT sum(numero_hojas) FROM cch.urbana WHERE tipo_de_documento='"+res_doc_tipos[i][0]+"'"
+                        self.cursor.execute(sql_num_hojas)
+                        res_num_hojas=self.cursor.fetchall()
+                        sum=0
+                        for j in range(0, len(res_num_hojas)):
+                            if (res_num_hojas[j]==(None,) or res_num_hojas[j]==[]):
+                                sum+=0
+                            else:
+                                sum+=res_num_hojas[j][0]
+                        num_hojas.append(sum)
+                #pydevd.settrace()
+                json_resp=json.dumps({"seccion":"#estadisticas_gen", "documentos": documentos, "num_hojas": num_hojas, "extension": "null"})
+                html=json_resp
+            return html
 
     def procesa_click_tabla(self):
         accion='Zoom a Municipios'

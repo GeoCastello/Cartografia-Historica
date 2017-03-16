@@ -48,6 +48,18 @@ def procesa_opcion_menu(environ):
     elif aplicacion=="estadisticas":
         opinion=formularios.crea_form_estadisticas()
         html=plantillas.crea_seccion_principal(opinion)
+        
+    elif aplicacion=="est_glob":
+        opinion=formularios.crea_form_estadisticas()
+        html=plantillas.crea_seccion_principal(opinion)
+    
+    elif aplicacion=="est_prov":
+        opinion=formularios.crea_form_estadisticas()
+        html=plantillas.crea_seccion_principal(opinion)
+    
+    elif aplicacion=="est_mtp":
+        opinion=formularios.crea_form_estadisticas()
+        html=plantillas.crea_seccion_principal(opinion)
 
     elif aplicacion=="opinion":
         opinion=formularios.crea_form_opinion()

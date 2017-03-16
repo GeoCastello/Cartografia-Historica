@@ -104,6 +104,24 @@ body {
     background-color: #9B0228;
 }
 
+.list_secundaria {
+    display: none;
+    position: absolute;
+    background-color: #F9F9F9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.list_secundaria:after {
+content: "";
+display: table;
+}
+
+#estadisticas_li:hover .list_secundaria {
+	display:inline-block;
+	z-index:300;
+}
+
 #submenu {
 	float: right;
 }
