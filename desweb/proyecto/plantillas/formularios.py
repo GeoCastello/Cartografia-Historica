@@ -43,11 +43,29 @@ def crea_form_opinion():
     formulario=dweb.leer_archivo(nom_arch)
     return formulario
 
-def crea_form_estadisticas():
+def crea_form_stat_general():
     """
-    Crea el formulario de estadisticas
+    Crea el formulario de estadisticas generales
     """
     #pydevd.settrace()
     nom_arch=dir_base+"/html_formularios/formulario_est_general.html"
+    formulario=dweb.leer_archivo(nom_arch)
+    return formulario
+
+def crea_form_stat_prov():
+    """
+    Crea el formulario de estadisticas por provincia
+    """
+    #pydevd.settrace()
+    nom_arch=dir_base+"/html_formularios/formulario_est_prov.html"
+    formulario=dweb.leer_archivo(nom_arch)
+    return formulario
+
+def crea_form_stat_mtp():
+    """
+    Crea el formulario de estadisticas por mtp
+    """
+    #pydevd.settrace()
+    nom_arch=dir_base+"/html_formularios/formulario_est_mtp.html"
     formulario=dweb.leer_archivo(nom_arch)
     return formulario

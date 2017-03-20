@@ -7,7 +7,7 @@
         <input type="hidden" name="nombre-form" id="nombre-form" value="formulario_est_general"/>
         <input type="hidden" name="type-form" id="type-form" value=""/>
             <label for="selec_estadistica" class="titulo">Seleccione la estadística que desea consultar:</label><br>
-            <select id="tipo_estadistica" name="tipo_estadistica">
+            <select id="tipo_estadistica" name="tipo_estadistica" onchange="enviar_formulario(this.form)">
                 <!-- rustica -->
                 <option value="sin_especificar">Seleccione una estadística</option>
                 <option value="num_hojas_por_documento">Número de hojas de cada tipo de documento</option>
@@ -17,7 +17,5 @@
                 <option value="hectareas_totales">Hectáreas totales</option>
             </select>
             <br>
-            <br>       
-            <button type="button" id="enviar" class="button" onclick="enviar_formulario(this.form)">Enviar</button>
     </form>             
 </section>

@@ -62,9 +62,24 @@ function crea_tablas(datos) {
 		alert(respuesta.mensaje)
 		limpiar()
 	}
+	
+	//****************************************************** ESTADISTICAS *************************************************//
 	if (respuesta.seccion=="#estadisticas_gen"){
-		var documentos=respuesta.documentos;
-		var num_hojas=respuesta.num_hojas;
+		var valores_x=respuesta.valores_x;
+		var valores_stat=respuesta.valores_stat;
+		var unidades=respuesta.unidades;
+		var orientacion=respuesta.orientacion;
+		var mensaje=respuesta.mensaje;
+		var prov_mensaje=respuesta.prov_mensaje;
+		
+		try {
+			d3.selectAll("svg").remove();
+			d3.selectAll("p").remove();
+			d3.selectAll(".info_box").remove();
+		}
+		catch (err) {
+			pass;
+		}
 		
 		d3.select("#estadisticas_sec")
 			.append("p")
@@ -79,79 +94,176 @@ function crea_tablas(datos) {
 		var height_rstat=width_rstat*mapRatio;
 
 		var barPadding=1;
-
-		var estadisticas_gen=d3.select("#estadisticas_sec")
-			.append( "svg" )
-			.attr( "width", width_rstat )
-			.attr( "height", height_rstat )
-			.attr("class", "stats");
 		
-		//**********************************AXIS*************************************//
-		var formatNumber=d3.format(".4")
-		//**********************************X AXIS*************************************//
-		xScale=d3.scaleBand()
-			.rangeRound([0, (width_rstat-width_rstat/10)])
-			.padding(0);
-		xScale.domain(documentos);
-
-		xAxis=d3.axisBottom()
-			.scale(xScale);
-
-		estadisticas_gen.append("g")
-			.attr("class", "xaxis")
-			.attr("transform", "translate("+(margin_rstat.left*7)+","+(height_rstat-(margin_rstat.bottom*20))+")")
-			.call(xAxis);
-		    
-
-		estadisticas_gen.selectAll(".xaxis text")  // select all the text elements for the xaxis
-	        .attr("transform", "translate(-5,0) rotate(-45)")
-	        .style("text-anchor", "end");
+		if (orientacion=="vertical"){
+			var estadisticas_gen=d3.select("#estadisticas_sec")
+				.append( "svg" )
+				.attr( "width", width_rstat )
+				.attr( "height", height_rstat )
+				.attr("class", "stats");
+			//**********************************AXIS*************************************//
+			var formatNumber=d3.format(".4")
+			//**********************************X AXIS*************************************//
+			xScale=d3.scaleBand()
+				.rangeRound([0, (width_rstat-width_rstat/10)])
+				.padding(0);
+			xScale.domain(valores_x);
+	
+			xAxis=d3.axisBottom()
+				.scale(xScale);
+	
+			estadisticas_gen.append("g")
+				.attr("class", "xaxis")
+				.attr("transform", "translate("+(margin_rstat.left*7)+","+(height_rstat-(margin_rstat.bottom*20))+")")
+				.call(xAxis);
+			    
+	
+			estadisticas_gen.selectAll(".xaxis text")  // select all the text elements for the xaxis
+		        .attr("transform", "translate(-5,0) rotate(-45)")
+		        .style("text-anchor", "end");
+			
+			//**********************************Y AXIS*************************************//
+			yScale=d3.scaleLinear()
+				.range([(height_rstat-(margin_rstat.bottom*20)), 0]);
+			yScale.domain([0, d3.max(valores_stat)]);
+	
+			yAxis=d3.axisLeft()
+				.scale(yScale)
+				.tickFormat(formatNumber);
+	
+			estadisticas_gen.append("g")
+				.attr("class", "yaxis")
+				.attr("transform", "translate("+(margin_rstat.left*7)+",0)")
+				.call(yAxis);
+			
+			//********************************** INFO BOX ********************************//
+			var tooltip = d3.select("body")
+			    .append("div")
+			    .attr("class", "info_box")
+			    .style("position", "absolute")
+			    .style("z-index", "10")
+			    .style("text-shadow", "1px 1px #FFF")
+			    .style("visibility", "hidden")
+			    
+			//**********************************GRAPH************************************//
+			max_value = Math.max.apply(Math, valores_stat);
+			estadisticas_gen
+				.selectAll("rect")
+				.data(valores_stat)
+				.enter()
+				.append("rect")
+				.on("mouseover", function(d,i) {
+							d3.select(this).attr("stroke", "#FFF");
+							d3.select("#value_stat")
+								.style("display", "block");
+							tooltip.style("visibility", "visible")
+						    	.text(valores_x[i].toUpperCase()+": "+d+" "+unidades);
+				})
+				.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-20)+"px").style("left",(d3.event.pageX+20)+"px");})
+				.on("mouseout", function(d) {
+							d3.select(this).attr("stroke", "#000");
+							d3.select("#value_stat");
+							tooltip.style("visibility", "hidden");
+						})
+				.attr("class", "rect_stat")
+				.attr("transform", "translate("+(margin_rstat.left*7)+","+(-margin_rstat.bottom-margin_rstat.top)+")")
+				.attr("x", function(d, i) {
+					return (width_rstat/100)+i*((width_rstat-width_rstat/8.5)/valores_stat.length);
+				})
+				.attr("y", function(d) {
+					return (height_rstat-(margin_rstat.bottom*18))-(d*(height_rstat-(margin_rstat.bottom*20))/max_value);
+				})
+				.transition().duration(500)
+				.attr("width", ((width_rstat-width_rstat/8.5)/valores_stat.length)-barPadding)
+				.attr("height", function(d) {
+					return (d*(height_rstat-(margin_rstat.bottom*20))/max_value);
+				})
+				.attr("fill", "#81BEF7")
+				.attr("stroke", "#000");
+		}
 		
-		//**********************************Y AXIS*************************************//
-		yScale=d3.scaleLinear()
-			.range([(height_rstat-(margin_rstat.bottom*20)), 0]);
-		yScale.domain([0, d3.max(num_hojas)]);
-
-		yAxis=d3.axisLeft()
-			.scale(yScale)
-			.tickFormat(formatNumber);
-
-		estadisticas_gen.append("g")
-			.attr("class", "yaxis")
-			.attr("transform", "translate("+(margin_rstat.left*7)+",0)")
-			.call(yAxis);
-		//**********************************GRAPH************************************//
-		max_value = Math.max.apply(Math, num_hojas);
-		estadisticas_gen
-			.selectAll("rect")
-			.data(num_hojas)
-			.enter()
-			.append("rect")
-			.on("mouseover", function(d) {
-						d3.select(this).attr("stroke", "#FFF");
-						d3.select("#value_stat")
-							.style("display", "block");
-						document.getElementById("value_stat").innerHTML="Valor: "+d+" Hojas";
-					})
-			.on("mouseout", function(d) {
-						d3.select(this).attr("stroke", "#000");
-						d3.select("#value_stat");
-					})
-			.attr("class", "rect_stat")
-			.attr("transform", "translate("+(margin_rstat.left*7)+","+(-margin_rstat.bottom-margin_rstat.top)+")")
-			.attr("x", function(d, i) {
-				return (width_rstat/100)+i*((width_rstat-width_rstat/8.5)/num_hojas.length);
-			})
-			.attr("y", function(d) {
-				return (height_rstat-(margin_rstat.bottom*18))-(d*(height_rstat-(margin_rstat.bottom*20))/max_value);
-			})
-			.transition().duration(500)
-			.attr("width", ((width_rstat-width_rstat/8.5)/num_hojas.length)-barPadding)
-			.attr("height", function(d) {
-				return (d*(height_rstat-(margin_rstat.bottom*20))/max_value);
-			})
-			.attr("fill", "#81BEF7")
-			.attr("stroke", "#000");
+		if (orientacion=="horizontal") {
+			var height_rstat2=height_rstat*6.5;
+			
+			var estadisticas_gen=d3.select("#estadisticas_sec")
+				.append( "svg" )
+				.attr( "width", width_rstat )
+				.attr( "height", height_rstat2 )
+				.attr("class", "stats");
+			//**********************************AXIS*************************************//
+			var formatNumber=d3.format(".4")
+			//**********************************X AXIS*************************************//
+			xScale=d3.scaleLinear().rangeRound([0, (width_rstat-width_rstat/5)]);
+			
+			xScale.domain([0, d3.max(valores_stat)]);
+			
+			estadisticas_gen.append("g")
+				.attr("class", "x-axis")
+				.attr("transform", "translate("+(margin_rstat.left*20)+","+(height_rstat2-(margin_rstat.bottom*5))+ ")")
+				.call(d3.axisBottom(xScale));
+			
+			//**********************************Y AXIS*************************************//
+			yScale=d3.scaleBand().rangeRound([0, (height_rstat2-(margin_rstat.bottom*2))]).padding(1);
+			yScale.domain(valores_x);
+			
+			estadisticas_gen.append("g")
+			.attr("class", "y-axis")
+			.attr("transform", "translate("+(margin_rstat.left*20)+","+(margin_rstat.bottom*2)+ ")")
+			.call(d3.axisLeft(yScale).tickSizeOuter(0));
+			
+			//********************************** INFO BOX ********************************//
+			var tooltip = d3.select("body")
+			    .append("div")
+			    .attr("class", "info_box")
+			    .style("position", "absolute")
+			    .style("z-index", "10")
+			    .style("text-shadow", "1px 1px #FFF")
+			    .style("visibility", "hidden")
+			    
+			//**********************************GRAPH************************************//
+			max_value = Math.max.apply(Math, valores_stat);
+			estadisticas_gen
+				.selectAll("rect")
+				.data(valores_stat)
+				.enter()
+				.append("rect")
+				.on("mouseover", function(d,i) {
+							d3.select(this).attr("stroke", "#FFF");
+							d3.select("#value_stat")
+								.style("display", "block");
+							tooltip.style("visibility", "visible")
+						    	.text(valores_x[i].toUpperCase()+": "+d+" "+unidades);
+				})
+				.on("mousemove", function(){return tooltip.style("top", (d3.event.pageY-20)+"px").style("left",(d3.event.pageX+20)+"px");})
+				.on("mouseout", function(d) {
+							d3.select(this).attr("stroke", "#000");
+							d3.select("#value_stat");
+							tooltip.style("visibility", "hidden");
+						})
+				.attr("class", "rect_stat")
+				.attr("transform", "translate(1,"+height_rstat2/43+")")
+				.attr("x", function(d) {
+					return (margin_rstat.left*20);
+				})
+				.attr("y", function(d, i) {
+					return i*((height_rstat2-(margin_rstat.bottom*13.5))/valores_stat.length);
+				})
+				.transition().duration(500)
+				.attr("width", function(d) {
+					return (d*(width_rstat-(margin_rstat.bottom*30))/max_value);
+				})
+				.attr("height", ((height_rstat*6)/valores_stat.length))
+				.attr("fill", "#81BEF7")
+				.attr("stroke", "#000");
+		}
+		
+		if (mensaje=='true') {
+			alert("Por favor, seleccione una estadística")
+		}
+		
+		if (prov_mensaje!='null') {
+			alert(prov_mensaje);
+		}
 	}
 	
 	
@@ -172,6 +284,10 @@ function resetear(f) {
 	var cuerpo=$('#municipio_final');
 	cuerpo.replaceWith(text)
 	document.getElementById('municipio_final').style.display = 'none';	
+}
+
+function reset_stats() {
+	document.getElementById('tipo_estadistica').value='sin_especificar';
 }
 
 function boton_enviar(f){
@@ -248,6 +364,53 @@ function enviar_click(sentencia) {
 function abrir_web(url){
 	// window.open(url, "_self");
 	window.open(url);
+}
+
+function enviar_provincias(f) {
+	//Here you don't have the acces to 'this' because the event onClick is launched
+	//from html; for that it receives f; this is the formular of the button from which 
+	//the event onClick is launched.
+	//it can't be done from the initialize function because the formular is not created
+	//yet, because it's created by ajax, after loading the main page
+	
+	var v=$(f).serialize() //It extracts the values of the formular and introduce them
+	   //like an string on the variable v
+	   //serialize has not into account the dissabled fields.
+	   //serialize is a JQUERY method.
+
+	$.ajax({
+	type: "POST",
+	url: url,
+	//data: $(nombre_form).serialize(), //Add the fields of the sended formular.
+	data: v, //Otr forma de adjuntarlos
+	success: generar_provincias,
+	error:function (xhr, ajaxOptions, thrownError) {
+	alert(xhr.status + '\n' + thrownError);
+	}
+	});
+	return false; //Avoid to execute the submit of the formular	
+}
+
+function generar_provincias(data) {
+	var response=$.parseJSON(data);
+	if (response.geom_type!='null'){
+		var types=response.geom_type;
+		var list=new Array();
+		list[0]="Seleccione una provincia";
+		for (var i = 0; i<types.length; i++) {
+			list[i+1]=types[i][0].toString();
+		}
+		var options='';
+		for (var j = 0; j<list.length; j++) {
+			if (list[j]=="Seleccione una provincia") {
+				options+='<option value="sin_especificar">'+list[j]+'</option>';
+			}
+			else {
+				options+='<option value="'+list[j]+'">'+list[j]+'</option>';
+			}
+		}
+		document.getElementById('tipo_provincia').innerHTML=options;
+	}
 }
 
 

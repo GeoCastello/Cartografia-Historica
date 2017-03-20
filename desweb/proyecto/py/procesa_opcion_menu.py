@@ -46,20 +46,20 @@ def procesa_opcion_menu(environ):
         html=plantillas.crea_seccion_principal(balfa)
 
     elif aplicacion=="estadisticas":
-        opinion=formularios.crea_form_estadisticas()
-        html=plantillas.crea_seccion_principal(opinion)
+        estadisticas=formularios.crea_form_stat_general()
+        html=plantillas.crea_seccion_principal(estadisticas)
         
     elif aplicacion=="est_glob":
-        opinion=formularios.crea_form_estadisticas()
-        html=plantillas.crea_seccion_principal(opinion)
+        stat_general=formularios.crea_form_stat_general()
+        html=plantillas.crea_seccion_principal(stat_general)
     
     elif aplicacion=="est_prov":
-        opinion=formularios.crea_form_estadisticas()
-        html=plantillas.crea_seccion_principal(opinion)
+        stat_prov=formularios.crea_form_stat_prov()
+        html=plantillas.crea_seccion_principal(stat_prov)
     
     elif aplicacion=="est_mtp":
-        opinion=formularios.crea_form_estadisticas()
-        html=plantillas.crea_seccion_principal(opinion)
+        stat_mtp=formularios.crea_form_stat_mtp()
+        html=plantillas.crea_seccion_principal(stat_mtp)
 
     elif aplicacion=="opinion":
         opinion=formularios.crea_form_opinion()

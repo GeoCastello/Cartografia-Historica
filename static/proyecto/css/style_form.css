@@ -130,3 +130,11 @@ form select:focus {
     background-color: #D8F6CE;
 }
 
+form div {
+	width: 45%;
+	float: left;
+}
+
+form .derecha {
+	margin-left: 3%;
+}

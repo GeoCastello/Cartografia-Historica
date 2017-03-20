@@ -1,0 +1,22 @@
+<section id="estadisticas_sec" class="estadisticas_sec">
+    <h1>
+         ESTADÍSTICAS DEL MAPA TOPOGRÁFICO PARCELARIO (MTP)
+    </h1><br>
+   
+   <form name="formulario_est_mtp" id="formulario_est_mtp" class="formulario_est_mtp">
+        <input type="hidden" name="nombre-form" id="nombre-form" value="formulario_est_mtp"/>
+        <input type="hidden" name="type-form" id="type-form" value=""/>
+            <label for="selec_estadistica" class="titulo">Seleccione la estadística que desea consultar:</label><br>
+            <select id="tipo_estadistica" name="tipo_estadistica" onchange="enviar_formulario(this.form)">
+                <!-- rustica -->
+                <option value="sin_especificar">Seleccione una estadística</option>
+                <option value="sum_hectareas_por_fecha_de_ejecucion">Suma de hectáreas por año de ejecución</option>
+                <option value="num_de_hojas">Número de hojas por provincia</option>
+                <option value="hectareas_totales">Hectáreas totales por provincia</option>
+                <option value="num_hectareas_digital">Número de hectáreas en digital por provincia</option>
+                <option value="num_hectareas_analogico">Número de hectáreas en analógico por provincia</option>
+                <option value="hectareas_totales">Los 10 municipios con más MTP</option>
+            </select>
+            <br>
+    </form>             
+</section>

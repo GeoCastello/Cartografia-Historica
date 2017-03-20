@@ -1,0 +1,76 @@
+<section id="estadisticas_sec" class="estadisticas_sec">
+    <h1>
+         ESTADÍSTICAS POR PROVINCIA
+    </h1><br>
+   
+   <form name="formulario_est_prov" id="formulario_est_prov" class="formulario_est_prov">
+        <input type="hidden" name="nombre-form" id="nombre-form" value="formulario_est_prov"/>
+        <input type="hidden" name="type-form" id="type-form" value=""/>
+        <div class="izquierda">
+            <label for="selec_provincia" class="titulo">Seleccione la provincia que desea consultar:</label><br>
+            <select id="provincia" name="provincia" onchange="reset_stats()">
+                <option value="sin_especificar">Seleccione una provincia</option>
+                <option value="ALBACETE">ALBACETE</option>
+                <option value="ALICANTE">ALICANTE</option>
+                <option value="ALMERIA">ALMERIA</option>
+                <option value="AVILA">AVILA</option>
+                <option value="BADAJOZ">BADAJOZ</option>
+                <option value="BARCELONA">BARCELONA</option>
+                <option value="BURGOS">BURGOS</option>
+                <option value="CACERES">CACERES</option>
+                <option value="CADIZ">CADIZ</option>
+                <option value="CANTABRIA">CANTABRIA</option>
+                <option value="CARTAGENA">CARTAGENA</option>
+                <option value="CASTELLON">CASTELLON</option>
+                <option value="CIUDAD REAL">CIUDAD REAL</option>
+                <option value="CORDOBA">CORDOBA</option>
+                <option value="CORUÑA (LA)">CORUÑA (LA)</option>
+                <option value="CUENCA">CUENCA</option>
+                <option value="GERONA">GERONA</option>
+                <option value="GIJON">GIJON</option>
+                <option value="GRANADA">GRANADA</option>
+                <option value="GUADALAJARA">GUADALAJARA</option>
+                <option value="HUELVA">HUELVA</option>
+                <option value="HUESCA">HUESCA</option>
+                <option value="ILLES BALEARS">ILLES BALEARS</option>
+                <option value="JAEN">JAEN</option>
+                <option value="JEREZ DE LA FRONTERA">JEREZ DE LA FRONTERA</option>
+                <option value="LEON">LEON</option>
+                <option value="LERIDA">LERIDA</option>
+                <option value="LUGO">LUGO</option>
+                <option value="MADRID">MADRID</option>
+                <option value="MALAGA">MALAGA</option>
+                <option value="MELILLA">MELILLA</option>
+                <option value="MURCIA">MURCIA</option>
+                <option value="OURENSE">OURENSE</option>
+                <option value="OVIEDO">OVIEDO</option>
+                <option value="PALENCIA">PALENCIA</option>
+                <option value="PALMAS (LAS)">PALMAS (LAS)</option>
+                <option value="PONTEVEDRA">PONTEVEDRA</option>
+                <option value="RIOJA (LA)">RIOJA (LA)</option>
+                <option value="SALAMANCA">SALAMANCA</option>
+                <option value="SANTA CRUZ DE TENERIFE">SANTA CRUZ DE TENERIFE</option>
+                <option value="SEGOVIA">SEGOVIA</option>
+                <option value="SEVILLA">SEVILLA</option>
+                <option value="SORIA">SORIA</option>
+                <option value="TARRAGONA">TARRAGONA</option>
+                <option value="TERUEL">TERUEL</option>
+                <option value="TOLEDO">TOLEDO</option>
+                <option value="VALENCIA">VALENCIA</option>
+                <option value="VALLADOLID">VALLADOLID</option>
+                <option value="VIGO">VIGO</option>
+                <option value="ZAMORA">ZAMORA</option>
+                <option value="ZARAGOZA">ZARAGOZA</option>                
+            </select>
+        </div>
+        <div class="derecha">
+            <label for="selec_estadistica" class="titulo">Seleccione la estadística que desea consultar:</label><br>
+            <select id="tipo_estadistica" name="tipo_estadistica" onchange="enviar_formulario(this.form)">
+                <!-- rustica -->
+                <option value="sin_especificar">Seleccione una estadística</option>
+                <option value="sum_hectareas_por_fecha_de_ejecucion">Suma de hectáreas por año de ejecución</option>
+                <option value="num_de_hojas_por_fecha_de_ejecucion">Número de hojas por año de ejecución</option>
+            </select>
+        </div>
+    </form>             
+</section>
