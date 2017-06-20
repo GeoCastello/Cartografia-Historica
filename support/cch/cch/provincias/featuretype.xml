@@ -1,0 +1,54 @@
+<featureType>
+  <id>FeatureTypeInfoImpl-48d93970:1555a846746:-7ff6</id>
+  <name>provincias</name>
+  <nativeName>provincias</nativeName>
+  <namespace>
+    <id>NamespaceInfoImpl-48d93970:1555a846746:-7fff</id>
+  </namespace>
+  <title>provincias</title>
+  <keywords>
+    <string>provincias</string>
+    <string>features</string>
+  </keywords>
+  <nativeCRS>GEOGCS[&quot;ETRS89&quot;, &#xd;
+  DATUM[&quot;European Terrestrial Reference System 1989&quot;, &#xd;
+    SPHEROID[&quot;GRS 1980&quot;, 6378137.0, 298.257222101, AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]], &#xd;
+    TOWGS84[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], &#xd;
+    AUTHORITY[&quot;EPSG&quot;,&quot;6258&quot;]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0, AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH], &#xd;
+  AUTHORITY[&quot;EPSG&quot;,&quot;4258&quot;]]</nativeCRS>
+  <srs>EPSG:4258</srs>
+  <nativeBoundingBox>
+    <minx>-15.9354124069214</minx>
+    <maxx>4.42859697341919</maxx>
+    <miny>27.6542530059814</miny>
+    <maxy>43.8726692199707</maxy>
+    <crs>EPSG:4258</crs>
+  </nativeBoundingBox>
+  <latLonBoundingBox>
+    <minx>-15.935412406921397</minx>
+    <maxx>4.42859697341919</maxx>
+    <miny>27.654253005205106</miny>
+    <maxy>43.87266921902814</maxy>
+    <crs>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</crs>
+  </latLonBoundingBox>
+  <projectionPolicy>FORCE_DECLARED</projectionPolicy>
+  <enabled>true</enabled>
+  <store class="dataStore">
+    <id>DataStoreInfoImpl-48d93970:1555a846746:-7ffe</id>
+  </store>
+  <maxFeatures>0</maxFeatures>
+  <numDecimals>0</numDecimals>
+  <overridingServiceSRS>false</overridingServiceSRS>
+  <skipNumberMatched>false</skipNumberMatched>
+  <circularArcPresent>false</circularArcPresent>
+</featureType>

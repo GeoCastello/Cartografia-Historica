@@ -1,0 +1,16 @@
+<layer>
+  <name>municipios</name>
+  <id>LayerInfoImpl-48d93970:1555a846746:-7ff7</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-1e1a11fb:155dbd285ff:-7ffd</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-48d93970:1555a846746:-7ff8</id>
+  </resource>
+  <opaque>true</opaque>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>
