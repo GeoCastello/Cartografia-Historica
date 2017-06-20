@@ -455,5 +455,12 @@ table tr:active {
 	cursor: pointer;
 }
 
+/************************* AYUDA ********************************/
+.indented {
+    padding-left: 20px;
+}
 
+.indented2 {
+    padding-left: 60px;
+}
 

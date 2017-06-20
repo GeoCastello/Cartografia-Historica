@@ -454,7 +454,7 @@ class procesar_formularios():
                         documentos.append(res_hojas_doc[i][0])
                         num_hojas.append(res_hojas_doc[i][1])
                 #pydevd.settrace()
-                json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": num_hojas, "unidades": "Hojas", "orientacion": "vertical", "extension": "null", "mensaje": "null"})
+                json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": num_hojas, "unidades": "Hojas", "orientacion": "vertical", "extension": "null", "mensaje": "null", "prov_mensaje": "null"})
                 html=json_resp
                 
         if tipo_estadistica=="total_hectareas_por_documento":
@@ -472,7 +472,7 @@ class procesar_formularios():
                     elif res_hectareas_doc[i][1]>0:
                         documentos.append(res_hectareas_doc[i][0])
                         superficie_has.append(res_hectareas_doc[i][1])
-                json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": superficie_has, "unidades": "Hectáreas", "orientacion": "vertical", "extension": "null", "mensaje": "null"})
+                json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": superficie_has, "unidades": "Hectáreas", "orientacion": "vertical", "extension": "null", "mensaje": "null", "prov_mensaje": "null"})
                 html=json_resp
                 
         if tipo_estadistica=="num_documentos_por_soporte":
@@ -491,7 +491,7 @@ class procesar_formularios():
                         documentos.append(res_hojas_soporte[i][0])
                         num_hojas.append(res_hojas_soporte[i][1])
                 #pydevd.settrace()
-                json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": num_hojas, "unidades": "Hojas", "orientacion": "horizontal", "extension": "null", "mensaje": "null"})
+                json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": num_hojas, "unidades": "Hojas", "orientacion": "horizontal", "extension": "null", "mensaje": "null", "prov_mensaje": "null"})
                 html=json_resp
                 
         if tipo_estadistica=="num_documentos_digital_y_analogico":
@@ -527,7 +527,7 @@ class procesar_formularios():
                         
             numero_tipo=[num_dig, num_analog]
             #pydevd.settrace()
-            json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": numero_tipo, "unidades": "Documentos", "orientacion": "vertical", "extension": "null", "mensaje": "null"})
+            json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": numero_tipo, "unidades": "Documentos", "orientacion": "vertical", "extension": "null", "mensaje": "null", "prov_mensaje": "null"})
             html=json_resp
             
         if tipo_estadistica=="hectareas_totales":
@@ -541,13 +541,13 @@ class procesar_formularios():
             num_hectareas=[res_hectareas[0][0], res_hectareas[1][0]]
                         
             #pydevd.settrace()
-            json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": num_hectareas, "unidades": "Hectáreas", "orientacion": "vertical", "extension": "null"})
+            json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": documentos, "valores_stat": num_hectareas, "unidades": "Hectáreas", "orientacion": "vertical", "extension": "null", "prov_mensaje": "null"})
             html=json_resp
             
         if tipo_estadistica=="sin_especificar":
             #pydevd.settrace()
             mensaje="true"
-            json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": "null", "valores_stat": "null", "unidades": "null", "null": "null", "extension": "null", "mensaje": mensaje})
+            json_resp=json.dumps({"seccion":"#estadisticas_gen", "valores_x": "null", "valores_stat": "null", "unidades": "null", "null": "null", "extension": "null", "mensaje": mensaje, "prov_mensaje": "null"})
             html=json_resp
                 
         return html            
